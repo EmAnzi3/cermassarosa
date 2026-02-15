@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Online la pagina della CER Massarosa — News</title>
+  <meta name="description" content="È online il sito ufficiale della CER Massarosa." />
+  <meta name="theme-color" content="#052e16" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ["ui-sans-serif","system-ui","Inter","Segoe UI","Roboto","Helvetica","Arial","Apple Color Emoji","Segoe UI Emoji"] }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .glass { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+  </style>
+</head>
+
+<body class="bg-green-950 text-slate-100 antialiased">
+  <div class="pointer-events-none fixed inset-0 -z-10">
+    <div class="absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-emerald-500/25 blur-3xl"></div>
+    <div class="absolute top-32 right-[-120px] h-[420px] w-[420px] rounded-full bg-green-400/20 blur-3xl"></div>
+    <div class="absolute bottom-[-180px] left-[-120px] h-[520px] w-[520px] rounded-full bg-lime-400/15 blur-3xl"></div>
+  </div>
+
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-green-950/70 glass">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+      <a href="../index.html" class="flex items-center gap-3">
+        <img src="../logo.png" alt="Logo CER Massarosa" class="h-10 w-auto" />
+        <div class="leading-tight">
+          <div class="text-sm font-semibold tracking-wide">CER MASSAROSA</div>
+          <div class="text-xs text-slate-300">La Nostra Energia</div>
+        </div>
+      </a>
+      <a href="../partecipa.html" class="inline-flex items-center justify-center rounded-xl bg-green-500 px-4 py-2 text-sm font-bold text-slate-950 hover:bg-green-400">
+        PARTECIPA
+      </a>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-3xl px-4 py-10 md:py-14">
+    <nav class="text-sm text-slate-300">
+      <a class="hover:text-white" href="../index.html">Home</a>
+      <span class="px-2">/</span>
+      <a class="hover:text-white" href="index.html">News</a>
+      <span class="px-2">/</span>
+      <span class="text-slate-100 font-semibold">Online la pagina</span>
+    </nav>
+
+    <article class="mt-8">
+      <div class="text-sm text-slate-300">15 Feb 2026</div>
+      <h1 class="mt-2 text-4xl font-black tracking-tight">Online la pagina della CER Massarosa</h1>
+
+      <div class="mt-8 space-y-6 text-slate-200 leading-relaxed">
+        <p>È online il sito ufficiale della Comunità Energetica Rinnovabile di Massarosa.</p>
+        <p>Da oggi puoi trovare in un unico punto: informazioni essenziali, contatti, documenti e modalità di partecipazione.</p>
+        <p>Obiettivo: energia condivisa, benefici locali, regole chiare. Niente fumo.</p>
+      </div>
+
+      <div class="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6">
+        <div class="text-sm font-bold">Link utili</div>
+        <div class="mt-4 flex flex-wrap gap-3">
+          <a class="rounded-xl bg-green-500 px-4 py-2 text-sm font-extrabold text-slate-950 hover:bg-green-400" href="../partecipa.html">Partecipa</a>
+          <a class="rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm font-bold hover:bg-white/10" href="../index.html#documenti">Documenti</a>
+          <a class="rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm font-bold hover:bg-white/10" href="index.html">Tutte le news</a>
+        </div>
+      </div>
+
+      <div class="mt-10 flex items-center justify-between text-sm">
+        <span class="text-slate-400">—</span>
+        <a class="font-bold text-slate-200 hover:text-white" href="2026-02-20-adesioni.html">Prossima →</a>
+      </div>
+    </article>
+  </main>
+</body>
+</html>

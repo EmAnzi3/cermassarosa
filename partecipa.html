@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Partecipa — CER Massarosa</title>
+  <meta name="description" content="Partecipa alla CER Massarosa: verifica la cabina primaria GSE e invia una richiesta di adesione preliminare." />
+  <meta name="theme-color" content="#052e16" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["ui-sans-serif", "system-ui", "Inter", "Segoe UI", "Roboto", "Helvetica", "Arial", "Apple Color Emoji", "Segoe UI Emoji"]
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    .glass { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+  </style>
+</head>
+
+<body class="bg-green-950 text-slate-100 antialiased">
+  <!-- Background glow -->
+  <div class="pointer-events-none fixed inset-0 -z-10">
+    <div class="absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-emerald-500/25 blur-3xl"></div>
+    <div class="absolute top-32 right-[-120px] h-[420px] w-[420px] rounded-full bg-green-400/20 blur-3xl"></div>
+    <div class="absolute bottom-[-180px] left-[-120px] h-[520px] w-[520px] rounded-full bg-lime-400/15 blur-3xl"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-green-950/70 glass">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="logo.png" alt="Logo CER Massarosa" class="h-12 w-auto" />
+        <div class="leading-tight">
+          <div class="text-sm font-semibold tracking-wide">CER MASSAROSA</div>
+          <div class="text-xs text-slate-300">La Nostra Energia</div>
+        </div>
+      </a>
+
+      <nav class="hidden items-center gap-6 text-sm text-slate-200 md:flex">
+        <a class="hover:text-white" href="index.html#documenti">Documenti</a>
+        <a class="hover:text-white" href="news/index.html">News</a>
+        <a class="hover:text-white" href="#mappa">Mappa GSE</a>
+        <a class="hover:text-white" href="#cabine">Cabine</a>
+        <a class="hover:text-white" href="#modulo">Modulo</a>
+      </nav>
+
+      <a href="#modulo" class="inline-flex items-center justify-center rounded-xl bg-green-500 px-4 py-2 text-sm font-bold text-slate-950 shadow-lg shadow-green-500/20 hover:bg-green-400">
+        INIZIA
+      </a>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-6xl px-4 py-10 md:py-14">
+    <!-- Breadcrumb -->
+    <nav class="text-sm text-slate-300">
+      <a class="hover:text-white" href="index.html">Home</a>
+      <span class="px-2">/</span>
+      <span class="text-slate-100 font-semibold">Partecipa</span>
+    </nav>
+
+    <!-- Hero -->
+<!-- Hero pulita (una sola colonna) -->
+<section class="mt-8">
+
+  <div class="max-w-4xl">
+    <h1 class="text-4xl font-black tracking-tight md:text-5xl">
+      Partecipa alla CER Massarosa
+    </h1>
+
+    <p class="mt-4 text-slate-200 leading-relaxed">
+      Prima verifica <span class="font-black text-white">in quale cabina primaria</span> ricade la tua utenza
+      con la mappa ufficiale GSE, poi invia una
+      <span class="font-black text-white">richiesta di adesione preliminare</span>.
+    </p>
+  </div>
+
+  <!-- Box come funziona -->
+  <div class="mt-10 rounded-3xl border border-white/10 bg-white/5 p-8">
+
+    <div class="text-sm font-semibold text-slate-200">Come funziona</div>
+
+    <div class="mt-6 space-y-5">
+
+      <div class="flex items-start gap-4">
+        <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-green-500 text-slate-950 font-black">1</div>
+        <div>
+          <div class="font-black">Trova la cabina primaria (GSE)</div>
+          <div class="text-sm text-slate-300">Cerca con POD o indirizzo sulla mappa ufficiale.</div>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-4">
+        <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-emerald-300 text-slate-950 font-black">2</div>
+        <div>
+          <div class="font-black">Seleziona la cabina di Massarosa</div>
+          <div class="text-sm text-slate-300">Qui sotto trovi le cabine che insistono sul territorio.</div>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-4">
+        <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-lime-300 text-slate-950 font-black">3</div>
+        <div>
+          <div class="font-black">Invia la richiesta preliminare</div>
+          <div class="text-sm text-slate-300">Dati essenziali e contatto. Procedura semplice e trasparente.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="mt-8 flex flex-col sm:flex-row gap-4">
+      <a href="#mappa"
+         class="flex-1 inline-flex items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-6 py-3 text-sm font-bold hover:bg-white/10">
+        Vai alla Mappa GSE
+      </a>
+
+      <a href="#cabine"
+         class="flex-1 inline-flex items-center justify-center rounded-2xl bg-green-500 px-6 py-3 text-sm font-extrabold text-slate-950 hover:bg-green-400">
+        Seleziona Cabina
+      </a>
+    </div>
+
+  </div>
+
+</section>
+
+    <!-- MAPPA GSE -->
+    <section id="mappa" class="mt-14 border-t border-white/10 pt-14">
+      <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div class="max-w-3xl">
+          <h2 class="text-3xl font-black tracking-tight md:text-4xl">Mappa GSE — cabine primarie</h2>
+          <p class="mt-3 text-slate-200">
+            Usa la mappa ufficiale per individuare la cabina primaria della tua utenza (POD/indirizzo/coordinate).
+          </p>
+        </div>
+
+        <a class="inline-flex w-fit items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-bold hover:bg-white/10"
+           href="https://mappe.gse.it/portal/apps/experiencebuilder/experience/?data_id=dataSource_4-19962386703-layer-12%3A1653&id=184cfb3e247b40b0af9dacac4376cd43"
+           target="_blank" rel="noopener">
+          Apri mappa in nuova scheda →
+        </a>
+      </div>
+
+      <div class="mt-8 rounded-3xl border border-white/10 bg-white/5 p-4">
+        <div class="aspect-[16/9] w-full overflow-hidden rounded-2xl border border-white/10 bg-green-950/40">
+          <iframe
+            id="gseMapFrame"
+            title="Mappa cabine primarie GSE"
+            class="h-full w-full"
+            loading="lazy"
+            referrerpolicy="no-referrer"
+            src="https://mappe.gse.it/portal/apps/experiencebuilder/experience/?data_id=dataSource_4-19962386703-layer-12%3A1653&id=184cfb3e247b40b0af9dacac4376cd43">
+          </iframe>
+        </div>
+
+        <div id="mapFallback" class="mt-4 hidden rounded-2xl border border-white/10 bg-green-950/40 p-4">
+          <div class="text-sm font-bold">Embed non disponibile</div>
+          <p class="mt-2 text-sm text-slate-300">
+            Se la mappa non compare è probabile che il portale blocchi l’inclusione in iframe. Aprila in nuova scheda.
+          </p>
+          <a class="mt-3 inline-flex items-center justify-center rounded-xl bg-green-500 px-4 py-2 text-sm font-extrabold text-slate-950 hover:bg-green-400"
+             href="https://mappe.gse.it/portal/apps/experiencebuilder/experience/?data_id=dataSource_4-19962386703-layer-12%3A1653&id=184cfb3e247b40b0af9dacac4376cd43"
+             target="_blank" rel="noopener">
+            Apri mappa →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CABINE -->
+    <section id="cabine" class="mt-14 border-t border-white/10 pt-14">
+      <h2 class="text-3xl font-black tracking-tight md:text-4xl">Cabine primarie su Massarosa</h2>
+      <p class="mt-3 max-w-3xl text-slate-200">
+        Se la tua utenza ricade in una di queste cabine, puoi inviare la richiesta di adesione preliminare.
+      </p>
+
+      <div class="mt-8 grid gap-4 md:grid-cols-2">
+        <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
+          <div class="text-sm text-slate-300">Cabina primaria</div>
+          <div class="mt-1 text-2xl font-black">AC001E00628</div>
+          <div class="mt-4 flex flex-wrap gap-3">
+            <button class="selectCabinaBtn rounded-xl bg-green-500 px-4 py-2 text-sm font-extrabold text-slate-950 hover:bg-green-400" data-cabina="AC001E00628">
+              Seleziona
+            </button>
+            <a class="rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm font-bold hover:bg-white/10" href="#modulo">
+              Vai al modulo →
+            </a>
+          </div>
+        </div>
+
+        <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
+          <div class="text-sm text-slate-300">Cabina primaria</div>
+          <div class="mt-1 text-2xl font-black">AC001E00706</div>
+          <div class="mt-4 flex flex-wrap gap-3">
+            <button class="selectCabinaBtn rounded-xl bg-green-500 px-4 py-2 text-sm font-extrabold text-slate-950 hover:bg-green-400" data-cabina="AC001E00706">
+              Seleziona
+            </button>
+            <a class="rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm font-bold hover:bg-white/10" href="#modulo">
+              Vai al modulo →
+            </a>
+          </div>
+        </div>
+
+        <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
+          <div class="text-sm text-slate-300">Cabina primaria</div>
+          <div class="mt-1 text-2xl font-black">AC001E00594</div>
+          <div class="mt-4 flex flex-wrap gap-3">
+            <button class="selectCabinaBtn rounded-xl bg-green-500 px-4 py-2 text-sm font-extrabold text-slate-950 hover:bg-green-400" data-cabina="AC001E00594">
+              Seleziona
+            </button>
+            <a class="rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm font-bold hover:bg-white/10" href="#modulo">
+              Vai al modulo →
+            </a>
+          </div>
+        </div>
+
+        <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
+          <div class="text-sm text-slate-300">Cabina primaria</div>
+          <div class="mt-1 text-2xl font-black">AC001E00627</div>
+          <div class="mt-4 flex flex-wrap gap-3">
+            <button class="selectCabinaBtn rounded-xl bg-green-500 px-4 py-2 text-sm font-extrabold text-slate-950 hover:bg-green-400" data-cabina="AC001E00627">
+              Seleziona
+            </button>
+            <a class="rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm font-bold hover:bg-white/10" href="#modulo">
+              Vai al modulo →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- MODULO (full width, senza box a destra) -->
+<section id="modulo" class="mt-14 border-t border-white/10 pt-14">
+  <div class="max-w-3xl">
+    <h2 class="text-3xl font-black tracking-tight md:text-4xl">Richiesta di adesione preliminare</h2>
+    <p class="mt-3 text-slate-200">
+      Compila i dati essenziali per avviare la verifica di ammissibilità alla CER Massarosa.
+    </p>
+  </div>
+
+  <div class="mt-8">
+    <form id="adesioneForm" class="rounded-3xl border border-white/10 bg-white/5 p-6 md:p-8">
+      <div class="text-sm font-bold">Modulo richiesta</div>
+
+      <div class="mt-5 space-y-4">
+        <div>
+          <label class="text-sm font-semibold text-slate-200" for="cabina">Cabina primaria *</label>
+          <input id="cabina" name="cabina" required readonly
+                 class="mt-1 w-full rounded-2xl border border-white/10 bg-green-950/40 px-4 py-3 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-green-300/60"
+                 placeholder="Seleziona una cabina sopra" />
+          <p class="mt-2 text-xs text-slate-400">Selezionala dalle card: qui si compila da sola.</p>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div>
+            <label class="text-sm font-semibold text-slate-200" for="tipo">Sei *</label>
+            <select id="tipo" name="tipo" required
+                    class="mt-1 w-full rounded-2xl border border-white/10 bg-green-950/40 px-4 py-3 text-slate-100 focus:outline-none focus:ring-2 focus:ring-green-300/60">
+              <option value="" disabled selected>Seleziona…</option>
+              <option>Persona fisica</option>
+              <option>Impresa</option>
+              <option>Ente</option>
+              <option>Produttore (FV)</option>
+            </select>
+          </div>
+          <div>
+            <label class="text-sm font-semibold text-slate-200" for="email">Email *</label>
+            <input id="email" name="email" type="email" required
+                   class="mt-1 w-full rounded-2xl border border-white/10 bg-green-950/40 px-4 py-3 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-green-300/60"
+                   placeholder="nome@dominio.it" />
+          </div>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div>
+            <label class="text-sm font-semibold text-slate-200" for="nome">Nome *</label>
+            <input id="nome" name="nome" required
+                   class="mt-1 w-full rounded-2xl border border-white/10 bg-green-950/40 px-4 py-3 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-green-300/60"
+                   placeholder="Mario" />
+          </div>
+          <div>
+            <label class="text-sm font-semibold text-slate-200" for="cognome">Cognome *</label>
+            <input id="cognome" name="cognome" required
+                   class="mt-1 w-full rounded-2xl border border-white/10 bg-green-950/40 px-4 py-3 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-green-300/60"
+                   placeholder="Rossi" />
+          </div>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div>
+            <label class="text-sm font-semibold text-slate-200" for="comune">Comune *</label>
+            <input id="comune" name="comune" required value="Massarosa"
+                   class="mt-1 w-full rounded-2xl border border-white/10 bg-green-950/40 px-4 py-3 text-slate-100 focus:outline-none focus:ring-2 focus:ring-green-300/60" />
+          </div>
+          <div>
+            <label class="text-sm font-semibold text-slate-200" for="telefono">Telefono (opz.)</label>
+            <input id="telefono" name="telefono"
+                   class="mt-1 w-full rounded-2xl border border-white/10 bg-green-950/40 px-4 py-3 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-green-300/60"
+                   placeholder="+39 ..." />
+          </div>
+        </div>
+
+        <div>
+          <label class="text-sm font-semibold text-slate-200" for="pod">POD (opz.)</label>
+          <input id="pod" name="pod"
+                 class="mt-1 w-full rounded-2xl border border-white/10 bg-green-950/40 px-4 py-3 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-green-300/60"
+                 placeholder="IT001E..." />
+        </div>
+
+        <div>
+          <label class="text-sm font-semibold text-slate-200" for="note">Note (opz.)</label>
+          <textarea id="note" name="note" rows="4"
+                    class="mt-1 w-full rounded-2xl border border-white/10 bg-green-950/40 px-4 py-3 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-green-300/60"
+                    placeholder="Es. ho FV, potenza impianto, disponibilità tetto, ecc."></textarea>
+        </div>
+
+        <label class="flex items-start gap-3 text-sm text-slate-200">
+          <input id="privacy" type="checkbox" required class="mt-1 h-4 w-4 rounded border-white/20 bg-green-950/40">
+          <span>
+            Acconsento al trattamento dei dati secondo l’informativa privacy
+            (<a class="underline decoration-white/25 hover:decoration-white" href="privacy.html" target="_blank" rel="noopener">leggi qui</a>).
+          </span>
+        </label>
+
+        <button type="submit"
+                class="w-full rounded-2xl bg-green-500 px-6 py-3 text-base font-extrabold text-slate-950 hover:bg-green-400">
+          Invia richiesta
+        </button>
+
+        <p class="text-xs text-slate-400">
+          L’invio avviene tramite email precompilata.
+        </p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer class="mt-14 border-t border-white/10 bg-green-950/70">
+  <div class="mx-auto max-w-6xl px-4 py-10">
+
+    <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+
+      <!-- Logo + Identità -->
+      <div class="flex items-center gap-3">
+        <img src="logo.png" alt="Logo CER Massarosa" class="h-12 w-auto">
+        <div class="leading-tight">
+          <div class="text-sm font-semibold tracking-wide text-slate-200">
+            CER MASSAROSA
+          </div>
+          <div class="text-xs text-slate-400">
+            La Nostra Energia
+          </div>
+        </div>
+      </div>
+
+      <!-- Link utili -->
+      <div class="flex flex-wrap gap-3 text-sm">
+        <a class="rounded-xl border border-white/10 bg-white/5 px-4 py-2 hover:bg-white/10"
+           href="index.html#documenti">Documenti</a>
+
+        <a class="rounded-xl border border-white/10 bg-white/5 px-4 py-2 hover:bg-white/10"
+           href="news/index.html">News</a>
+
+        <a class="rounded-xl border border-white/10 bg-white/5 px-4 py-2 hover:bg-white/10"
+           href="partecipa.html">Partecipa</a>
+
+        <a class="rounded-xl border border-white/10 bg-white/5 px-4 py-2 hover:bg-white/10"
+           href="privacy.html">Privacy</a>
+      </div>
+    </div>
+
+    <!-- Riga finale -->
+    <div class="mt-8 border-t border-white/10 pt-6 text-xs text-slate-400">
+      © 2026 CER Massarosa — Tutti i diritti riservati.
+    </div>
+
+  </div>
+</footer>
+  </main>
+
+  <script>
+    // Cabina selection + query param support
+    const cabinaInput = document.getElementById("cabina");
+    const selectedCabinaText = document.getElementById("selectedCabinaText");
+    const selectedCabinaBadge = document.getElementById("selectedCabinaBadge");
+
+    function setCabina(code) {
+      cabinaInput.value = code;
+      selectedCabinaText.textContent = code;
+      selectedCabinaBadge.classList.remove("ring-white/10");
+      selectedCabinaBadge.classList.add("ring-green-400/25");
+      selectedCabinaBadge.querySelector("span").classList.remove("bg-slate-400");
+      selectedCabinaBadge.querySelector("span").classList.add("bg-green-400");
+      updatePreviewAndMailto();
+    }
+
+    document.querySelectorAll(".selectCabinaBtn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const code = btn.getAttribute("data-cabina");
+        setCabina(code);
+        document.getElementById("modulo").scrollIntoView({ behavior: "smooth" });
+      });
+    });
+
+    const params = new URLSearchParams(window.location.search);
+    const cabinaParam = params.get("cabina");
+    if (cabinaParam) setCabina(cabinaParam);
+
+    // Email preview + mailto generation (zero cost)
+    const form = document.getElementById("adesioneForm");
+    const emailPreview = document.getElementById("emailPreview");
+    const mailtoBtn = document.getElementById("mailtoBtn");
+
+    const fields = ["cabina","tipo","email","nome","cognome","comune","telefono","pod","note"];
+    fields.forEach(id => {
+      const el = document.getElementById(id);
+      el.addEventListener("input", updatePreviewAndMailto);
+      el.addEventListener("change", updatePreviewAndMailto);
+    });
+
+    function buildBody() {
+      const v = (id) => (document.getElementById(id).value || "").trim();
+      return [
+        "RICHIESTA ADESIONE PRELIMINARE — CER MASSAROSA",
+        "",
+        "Cabina primaria: " + v("cabina"),
+        "Tipo soggetto: " + v("tipo"),
+        "",
+        "Nome: " + v("nome"),
+        "Cognome: " + v("cognome"),
+        "Email: " + v("email"),
+        "Telefono: " + v("telefono"),
+        "Comune: " + v("comune"),
+        "POD: " + v("pod"),
+        "",
+        "Note:",
+        v("note") || "-",
+        "",
+        "Consenso privacy: SI",
+        "",
+        "— Inviato dal sito CER Massarosa"
+      ].join("\n");
+    }
+
+    function updatePreviewAndMailto() {
+      const subject = "Richiesta adesione preliminare - CER Massarosa";
+      const body = buildBody();
+
+      emailPreview.value = body;
+
+      const to = "emanueleanzilotti@gmail.com";
+      const href = "mailto:" + encodeURIComponent(to)
+        + "?subject=" + encodeURIComponent(subject)
+        + "&body=" + encodeURIComponent(body);
+
+      mailtoBtn.setAttribute("href", href);
+    }
+
+    updatePreviewAndMailto();
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (!cabinaInput.value.trim()) {
+        alert("Seleziona prima una cabina primaria (sezione Cabine).");
+        return;
+      }
+      window.location.href = mailtoBtn.getAttribute("href");
+    });
+
+    // Copy
+    const copyBtn = document.getElementById("copyBtn");
+    const copyToast = document.getElementById("copyToast");
+
+    copyBtn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(emailPreview.value);
+        copyToast.classList.remove("hidden");
+        setTimeout(() => copyToast.classList.add("hidden"), 1500);
+      } catch (err) {
+        alert("Copia non riuscita. Seleziona il testo e copia manualmente.");
+      }
+    });
+
+    // Map iframe fallback detection (best-effort)
+    const frame = document.getElementById("gseMapFrame");
+    const fallback = document.getElementById("mapFallback");
+
+    setTimeout(() => {
+      const rect = frame.getBoundingClientRect();
+      if (!rect.width || !rect.height) fallback.classList.remove("hidden");
+    }, 2500);
+  </script>
+</body>
+</html>

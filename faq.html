@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FAQ — CER Massarosa</title>
+  <meta name="description" content="Domande frequenti sulla Comunità Energetica Rinnovabile (CER) Massarosa: requisiti, cabine primarie, incentivi, adesione, privacy." />
+  <meta name="theme-color" content="#052e16" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-green-950 text-slate-100 antialiased">
+  <!-- Background glow -->
+  <div class="pointer-events-none fixed inset-0 -z-10">
+    <div class="absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-emerald-500/25 blur-3xl"></div>
+    <div class="absolute top-32 right-[-120px] h-[420px] w-[420px] rounded-full bg-green-400/20 blur-3xl"></div>
+    <div class="absolute bottom-[-180px] left-[-120px] h-[520px] w-[520px] rounded-full bg-lime-400/15 blur-3xl"></div>
+  </div>
+
+  <!-- HEADER (standard root) -->
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-green-950/70 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="logo.png" alt="Logo CER Massarosa" class="h-12 w-auto">
+        <div class="leading-tight">
+          <div class="text-sm font-semibold tracking-wide text-slate-200">CER MASSAROSA</div>
+          <div class="text-xs text-slate-400">La Nostra Energia</div>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm text-slate-200">
+        <a class="hover:text-white" href="index.html#documenti">Documenti</a>
+        <a class="hover:text-white" href="news/index.html">News</a>
+        <a class="hover:text-white" href="partecipa.html">Partecipa</a>
+        <a class="hover:text-white" href="faq.html">FAQ</a>
+        <a class="hover:text-white" href="privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-6xl px-4 py-10 md:py-14">
+
+    <!-- Hero -->
+    <section class="grid gap-8 md:grid-cols-2 md:items-start">
+      <div>
+        <h1 class="text-4xl font-black tracking-tight md:text-5xl">FAQ</h1>
+        <p class="mt-4 text-slate-200 leading-relaxed">
+          Le risposte rapide alle domande più frequenti sulla <span class="font-bold text-white">CER Massarosa</span>.
+          Se non trovi quello che ti serve, vai su <a class="underline decoration-white/25 hover:decoration-white" href="partecipa.html">Partecipa</a>
+          e inviaci una richiesta.
+        </p>
+
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a href="#faq" class="inline-flex items-center justify-center rounded-2xl bg-green-500 px-6 py-3 text-sm font-extrabold text-slate-950 hover:bg-green-400">
+            Vai alle domande
+          </a>
+          <a href="partecipa.html" class="inline-flex items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-6 py-3 text-sm font-bold hover:bg-white/10">
+            Partecipa →
+          </a>
+        </div>
+      </div>
+
+      <!-- Search -->
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
+        <div class="text-sm font-bold">Cerca nelle FAQ</div>
+        <p class="mt-2 text-sm text-slate-300">Scrivi una parola chiave (es. “cabina”, “POD”, “incentivo”, “fornitore”).</p>
+
+        <div class="mt-4">
+          <input id="faqSearch" type="text"
+            class="w-full rounded-2xl border border-white/10 bg-green-950/40 px-4 py-3 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-green-300/60"
+            placeholder="Cerca..." />
+        </div>
+
+        <div class="mt-4 text-xs text-slate-400">
+          Suggerimento: le risposte sono pensate per essere “da cittadino”, non da manuale tecnico.
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="mt-14 border-t border-white/10 pt-14">
+      <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <div class="max-w-3xl">
+          <h2 class="text-3xl font-black tracking-tight md:text-4xl">Domande frequenti</h2>
+          <p class="mt-3 text-slate-200">
+            Sezione in aggiornamento. Le FAQ vengono ampliate man mano che riceviamo domande.
+          </p>
+        </div>
+
+        <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm">
+          <span class="font-bold">Contatto:</span>
+          <a class="underline decoration-white/25 hover:decoration-white" href="mailto:info@cermassarosa.com">info@cermassarosa.com</a>
+        </div>
+      </div>
+
+      <!-- Category pills -->
+      <div class="mt-8 flex flex-wrap gap-2">
+        <button class="faqFilter rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-bold hover:bg-white/10" data-filter="all">Tutte</button>
+        <button class="faqFilter rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-bold hover:bg-white/10" data-filter="base">Base</button>
+        <button class="faqFilter rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-bold hover:bg-white/10" data-filter="requisiti">Requisiti</button>
+        <button class="faqFilter rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-bold hover:bg-white/10" data-filter="cabine">Cabine</button>
+        <button class="faqFilter rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-bold hover:bg-white/10" data-filter="benefici">Benefici</button>
+        <button class="faqFilter rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-bold hover:bg-white/10" data-filter="privacy">Privacy</button>
+      </div>
+
+      <!-- Accordion list -->
+      <div id="faqList" class="mt-8 space-y-3">
+
+        <!-- BASE -->
+        <details class="faqItem rounded-3xl border border-white/10 bg-white/5 p-6" data-tags="base">
+          <summary class="cursor-pointer select-none list-none">
+            <div class="flex items-start justify-between gap-6">
+              <div class="text-lg font-black">Cos’è una CER?</div>
+              <div class="text-slate-300">+</div>
+            </div>
+            <div class="mt-1 text-sm text-slate-300">Concetto base, senza tecnicismi.</div>
+          </summary>
+          <div class="mt-4 text-slate-200 leading-relaxed">
+            Una Comunità Energetica Rinnovabile (CER) è un soggetto che mette insieme persone, imprese ed enti che
+            producono e/o consumano energia rinnovabile. L’obiettivo è condividere virtualmente una parte dell’energia prodotta,
+            ottenendo benefici economici e ambientali sul territorio.
+          </div>
+        </details>
+
+        <details class="faqItem rounded-3xl border border-white/10 bg-white/5 p-6" data-tags="base,requisiti">
+          <summary class="cursor-pointer select-none list-none">
+            <div class="flex items-start justify-between gap-6">
+              <div class="text-lg font-black">Chi può partecipare alla CER Massarosa?</div>
+              <div class="text-slate-300">+</div>
+            </div>
+            <div class="mt-1 text-sm text-slate-300">Cittadini, imprese, enti: cosa serve.</div>
+          </summary>
+          <div class="mt-4 text-slate-200 leading-relaxed">
+            In generale possono partecipare cittadini, PMI, enti del terzo settore ed enti locali.
+            La condizione chiave è essere allacciati (con il proprio punto di prelievo) in una delle cabine primarie che ricadono nel perimetro.
+            Se hai dubbi, vai su <a class="underline decoration-white/25 hover:decoration-white" href="partecipa.html">Partecipa</a>.
+          </div>
+        </details>
+
+        <details class="faqItem rounded-3xl border border-white/10 bg-white/5 p-6" data-tags="base">
+          <summary class="cursor-pointer select-none list-none">
+            <div class="flex items-start justify-between gap-6">
+              <div class="text-lg font-black">Devo cambiare fornitore di energia per aderire?</div>
+              <div class="text-slate-300">+</div>
+            </div>
+            <div class="mt-1 text-sm text-slate-300">No: la CER non ti “lega” al fornitore.</div>
+          </summary>
+          <div class="mt-4 text-slate-200 leading-relaxed">
+            In una CER, normalmente, mantieni il tuo fornitore. L’adesione riguarda la condivisione virtuale dell’energia
+            e la gestione degli incentivi, non l’obbligo di cambiare contratto di fornitura.
+          </div>
+        </details>
+
+        <!-- CABINE -->
+        <details class="faqItem rounded-3xl border border-white/10 bg-white/5 p-6" data-tags="cabine,requisiti">
+          <summary class="cursor-pointer select-none list-none">
+            <div class="flex items-start justify-between gap-6">
+              <div class="text-lg font-black">Cos’è una “cabina primaria” e perché è importante?</div>
+              <div class="text-slate-300">+</div>
+            </div>
+            <div class="mt-1 text-sm text-slate-300">È il perimetro tecnico che definisce la configurazione.</div>
+          </summary>
+          <div class="mt-4 text-slate-200 leading-relaxed">
+            La cabina primaria è un nodo della rete elettrica che definisce l’area entro cui l’energia condivisa viene calcolata.
+            Per le CER, i membri devono ricadere nella stessa cabina primaria della specifica configurazione.
+            Ecco perché la prima cosa da fare è identificare la cabina con la mappa GSE.
+          </div>
+        </details>
+
+        <details class="faqItem rounded-3xl border border-white/10 bg-white/5 p-6" data-tags="cabine">
+          <summary class="cursor-pointer select-none list-none">
+            <div class="flex items-start justify-between gap-6">
+              <div class="text-lg font-black">Quali cabine primarie coprono Massarosa?</div>
+              <div class="text-slate-300">+</div>
+            </div>
+            <div class="mt-1 text-sm text-slate-300">Codici cabine usati per la CER Massarosa.</div>
+          </summary>
+          <div class="mt-4 text-slate-200 leading-relaxed">
+            Per Massarosa lavoriamo sulle cabine primarie:
+            <ul class="mt-3 list-disc pl-5 space-y-1">
+              <li><span class="font-mono">AC001E00628</span></li>
+              <li><span class="font-mono">AC001E00706</span></li>
+              <li><span class="font-mono">AC001E00594</span></li>
+              <li><span class="font-mono">AC001E00627</span></li>
+            </ul>
+            Se non sai in quale ricadi, usa la sezione mappa su <a class="underline decoration-white/25 hover:decoration-white" href="partecipa.html">Partecipa</a>.
+          </div>
+        </details>
+
+        <details class="faqItem rounded-3xl border border-white/10 bg-white/5 p-6" data-tags="cabine">
+          <summary class="cursor-pointer select-none list-none">
+            <div class="flex items-start justify-between gap-6">
+              <div class="text-lg font-black">Come verifico la mia cabina primaria?</div>
+              <div class="text-slate-300">+</div>
+            </div>
+            <div class="mt-1 text-sm text-slate-300">Metodo veloce e affidabile.</div>
+          </summary>
+          <div class="mt-4 text-slate-200 leading-relaxed">
+            Il metodo più affidabile è usare il <span class="font-bold">POD</span> (lo trovi in bolletta) nella mappa GSE.
+            La ricerca per indirizzo può essere meno precisa in aree di confine. Nella pagina <a class="underline decoration-white/25 hover:decoration-white" href="partecipa.html">Partecipa</a>
+            trovi la mappa e i pulsanti di selezione cabina.
+          </div>
+        </details>
+
+        <!-- BENEFICI -->
+        <details class="faqItem rounded-3xl border border-white/10 bg-white/5 p-6" data-tags="benefici,base">
+          <summary class="cursor-pointer select-none list-none">
+            <div class="flex items-start justify-between gap-6">
+              <div class="text-lg font-black">Che vantaggi ci sono per chi aderisce?</div>
+              <div class="text-slate-300">+</div>
+            </div>
+            <div class="mt-1 text-sm text-slate-300">Economici, ambientali e sociali.</div>
+          </summary>
+          <div class="mt-4 text-slate-200 leading-relaxed">
+            I benefici tipici includono un incentivo legato all’energia condivisa e un impatto positivo sul territorio:
+            più rinnovabili, più consapevolezza energetica, e maggiore resilienza locale.
+            I dettagli concreti (ripartizione, regole, requisiti) sono nello Statuto e nel Regolamento.
+          </div>
+        </details>
+
+        <details class="faqItem rounded-3xl border border-white/10 bg-white/5 p-6" data-tags="benefici,requisiti">
+          <summary class="cursor-pointer select-none list-none">
+            <div class="flex items-start justify-between gap-6">
+              <div class="text-lg font-black">Se ho un impianto fotovoltaico, posso partecipare come produttore?</div>
+              <div class="text-slate-300">+</div>
+            </div>
+            <div class="mt-1 text-sm text-slate-300">Sì, se rispetta i requisiti e la cabina.</div>
+          </summary>
+          <div class="mt-4 text-slate-200 leading-relaxed">
+            Sì. In generale puoi partecipare come produttore/autoconsumatore se il tuo punto di connessione ricade nel perimetro
+            (cabina primaria) e l’impianto rispetta i requisiti di ammissibilità previsti dalla normativa e dalle regole operative.
+            Per l’istruttoria, nella pratica servono dati come POD e dati dell’impianto.
+          </div>
+        </details>
+
+        <details class="faqItem rounded-3xl border border-white/10 bg-white/5 p-6" data-tags="benefici,base">
+          <summary class="cursor-pointer select-none list-none">
+            <div class="flex items-start justify-between gap-6">
+              <div class="text-lg font-black">Posso uscire dalla CER quando voglio?</div>
+              <div class="text-slate-300">+</div>
+            </div>
+            <div class="mt-1 text-sm text-slate-300">In linea generale sì, seguendo le regole interne.</div>
+          </summary>
+          <div class="mt-4 text-slate-200 leading-relaxed">
+            In genere è prevista la possibilità di recesso secondo quanto stabilito nello Statuto e nel Regolamento della CER.
+            La comunità non deve diventare una “gabbia”: deve essere un vantaggio, non un vincolo.
+          </div>
+        </details>
+
+        <!-- PRIVACY -->
+        <details class="faqItem rounded-3xl border border-white/10 bg-white/5 p-6" data-tags="privacy">
+          <summary class="cursor-pointer select-none list-none">
+            <div class="flex items-start justify-between gap-6">
+              <div class="text-lg font-black">Che dati mi chiedete e perché?</div>
+              <div class="text-slate-300">+</div>
+            </div>
+            <div class="mt-1 text-sm text-slate-300">Solo quelli utili a verificare l’ammissibilità.</div>
+          </summary>
+          <div class="mt-4 text-slate-200 leading-relaxed">
+            Per una richiesta preliminare bastano dati di contatto e la cabina primaria. Se vuoi accelerare l’istruttoria,
+            puoi indicare anche il POD. Trattiamo i dati per gestire richieste e adesioni, come indicato nella
+            <a class="underline decoration-white/25 hover:decoration-white" href="privacy.html">Privacy Policy</a>.
+          </div>
+        </details>
+
+        <details class="faqItem rounded-3xl border border-white/10 bg-white/5 p-6" data-tags="base,requisiti">
+          <summary class="cursor-pointer select-none list-none">
+            <div class="flex items-start justify-between gap-6">
+              <div class="text-lg font-black">Dove trovo Statuto e Regolamento della CER?</div>
+              <div class="text-slate-300">+</div>
+            </div>
+            <div class="mt-1 text-sm text-slate-300">Documenti ufficiali pubblicati sul sito.</div>
+          </summary>
+          <div class="mt-4 text-slate-200 leading-relaxed">
+            Nella home trovi la sezione <a class="underline decoration-white/25 hover:decoration-white" href="index.html#documenti">Documenti</a>
+            con i PDF dello Statuto e del Regolamento.
+          </div>
+        </details>
+
+      </div>
+
+      <!-- No results -->
+      <div id="noResults" class="mt-8 hidden rounded-3xl border border-white/10 bg-white/5 p-6">
+        <div class="text-lg font-black">Nessun risultato</div>
+        <p class="mt-2 text-slate-300">
+          Prova con un’altra parola chiave (es. “POD”, “cabina”, “fornitore”, “incentivo”).
+        </p>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- FOOTER (standard root) -->
+  <footer class="mt-14 border-t border-white/10 bg-green-950/70">
+    <div class="mx-auto max-w-6xl px-4 py-10">
+
+      <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <div class="flex items-center gap-3">
+          <img src="logo.png" alt="Logo CER Massarosa" class="h-12 w-auto">
+          <div class="leading-tight">
+            <div class="text-sm font-semibold tracking-wide text-slate-200">CER MASSAROSA</div>
+            <div class="text-xs text-slate-400">La Nostra Energia</div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-3 text-sm">
+          <a class="rounded-xl border border-white/10 bg-white/5 px-4 py-2 hover:bg-white/10" href="index.html">Home</a>
+          <a class="rounded-xl border border-white/10 bg-white/5 px-4 py-2 hover:bg-white/10" href="news/index.html">News</a>
+          <a class="rounded-xl border border-white/10 bg-white/5 px-4 py-2 hover:bg-white/10" href="partecipa.html">Partecipa</a>
+          <a class="rounded-xl border border-white/10 bg-white/5 px-4 py-2 hover:bg-white/10" href="faq.html">FAQ</a>
+          <a class="rounded-xl border border-white/10 bg-white/5 px-4 py-2 hover:bg-white/10" href="privacy.html">Privacy</a>
+        </div>
+      </div>
+
+      <div class="mt-8 border-t border-white/10 pt-6 text-xs text-slate-400">
+        © 2026 CER Massarosa — Tutti i diritti riservati.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Search
+    const search = document.getElementById("faqSearch");
+    const items = Array.from(document.querySelectorAll(".faqItem"));
+    const noResults = document.getElementById("noResults");
+
+    // Filters
+    const filters = Array.from(document.querySelectorAll(".faqFilter"));
+    let activeFilter = "all";
+
+    function apply() {
+      const q = (search.value || "").trim().toLowerCase();
+      let visible = 0;
+
+      items.forEach(el => {
+        const tags = (el.getAttribute("data-tags") || "").toLowerCase();
+        const text = el.innerText.toLowerCase();
+
+        const matchFilter = (activeFilter === "all") || tags.split(",").includes(activeFilter);
+        const matchQuery = !q || text.includes(q);
+
+        const show = matchFilter && matchQuery;
+        el.classList.toggle("hidden", !show);
+        if (show) visible++;
+      });
+
+      noResults.classList.toggle("hidden", visible !== 0);
+    }
+
+    search.addEventListener("input", apply);
+
+    filters.forEach(btn => {
+      btn.addEventListener("click", () => {
+        activeFilter = btn.getAttribute("data-filter") || "all";
+
+        // visual active state
+        filters.forEach(b => b.classList.remove("ring-2","ring-green-400/50"));
+        btn.classList.add("ring-2","ring-green-400/50");
+
+        apply();
+      });
+    });
+
+    // default active ring
+    filters[0].classList.add("ring-2","ring-green-400/50");
+
+    // Accordion icon (+ / -)
+    items.forEach(d => {
+      d.addEventListener("toggle", () => {
+        const icon = d.querySelector("summary .text-slate-300");
+        if (!icon) return;
+        icon.textContent = d.open ? "–" : "+";
+      });
+    });
+
+    apply();
+  </script>
+</body>
+</html>
