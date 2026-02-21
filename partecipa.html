@@ -441,117 +441,85 @@
 </footer>
   </main>
 
-  <script>
-    // Cabina selection + query param support
-    const cabinaInput = document.getElementById("cabina");
-    const selectedCabinaText = document.getElementById("selectedCabinaText");
-    const selectedCabinaBadge = document.getElementById("selectedCabinaBadge");
+<script>
 
-    function setCabina(code) {
-      cabinaInput.value = code;
-      selectedCabinaText.textContent = code;
-      selectedCabinaBadge.classList.remove("ring-white/10");
-      selectedCabinaBadge.classList.add("ring-green-400/25");
-      selectedCabinaBadge.querySelector("span").classList.remove("bg-slate-400");
-      selectedCabinaBadge.querySelector("span").classList.add("bg-green-400");
-      updatePreviewAndMailto();
+  // ===== CABINA SELECTION =====
+  const cabinaInput = document.getElementById("cabina");
+
+  function setCabina(code) {
+    if (!cabinaInput) return;
+    cabinaInput.value = code;
+  }
+
+  document.querySelectorAll(".selectCabinaBtn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const code = btn.getAttribute("data-cabina");
+      if (!code) return;
+
+      setCabina(code);
+
+      document.getElementById("modulo")
+        .scrollIntoView({ behavior: "smooth" });
+    });
+  });
+
+  // Supporto parametro ?cabina=...
+  const params = new URLSearchParams(window.location.search);
+  const cabinaParam = params.get("cabina");
+  if (cabinaParam) setCabina(cabinaParam);
+
+
+
+  // ===== INVIO A GOOGLE SHEETS =====
+  const form = document.getElementById("adesioneForm");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    if (!cabinaInput.value.trim()) {
+      alert("Seleziona prima una cabina primaria.");
+      return;
     }
 
-    document.querySelectorAll(".selectCabinaBtn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const code = btn.getAttribute("data-cabina");
-        setCabina(code);
-        document.getElementById("modulo").scrollIntoView({ behavior: "smooth" });
+    const data = {
+      cabina: document.getElementById("cabina").value,
+      tipo: document.getElementById("tipo").value,
+      nome: document.getElementById("nome").value,
+      cognome: document.getElementById("cognome").value,
+      email: document.getElementById("email").value,
+      telefono: document.getElementById("telefono").value,
+      comune: document.getElementById("comune").value,
+      pod: document.getElementById("pod").value,
+      note: document.getElementById("note").value
+    };
+
+    try {
+      await fetch("https://script.google.com/macros/s/AKfycbwJl4Zy5AlVuDmRgqHNvyyTVMtgqu93JVrIbwQY8vADDILDFL5xEyF9lJEqgLk8j2dXwQ/exec", {
+        method: "POST",
+        body: JSON.stringify(data)
       });
-    });
 
-    const params = new URLSearchParams(window.location.search);
-    const cabinaParam = params.get("cabina");
-    if (cabinaParam) setCabina(cabinaParam);
-
-    // Email preview + mailto generation (zero cost)
-    const form = document.getElementById("adesioneForm");
-    const emailPreview = document.getElementById("emailPreview");
-    const mailtoBtn = document.getElementById("mailtoBtn");
-
-    const fields = ["cabina","tipo","email","nome","cognome","comune","telefono","pod","note"];
-    fields.forEach(id => {
-      const el = document.getElementById(id);
-      el.addEventListener("input", updatePreviewAndMailto);
-      el.addEventListener("change", updatePreviewAndMailto);
-    });
-
-    function buildBody() {
-      const v = (id) => (document.getElementById(id).value || "").trim();
-      return [
-        "RICHIESTA ADESIONE PRELIMINARE — CER MASSAROSA",
-        "",
-        "Cabina primaria: " + v("cabina"),
-        "Tipo soggetto: " + v("tipo"),
-        "",
-        "Nome: " + v("nome"),
-        "Cognome: " + v("cognome"),
-        "Email: " + v("email"),
-        "Telefono: " + v("telefono"),
-        "Comune: " + v("comune"),
-        "POD: " + v("pod"),
-        "",
-        "Note:",
-        v("note") || "-",
-        "",
-        "Consenso privacy: SI",
-        "",
-        "— Inviato dal sito CER Massarosa"
-      ].join("\n");
+      alert("Richiesta inviata correttamente.");
+      form.reset();
+    } catch (error) {
+      alert("Errore nell'invio. Riprovare.");
     }
+  });
 
-    function updatePreviewAndMailto() {
-      const subject = "Richiesta adesione preliminare - CER Massarosa";
-      const body = buildBody();
 
-      emailPreview.value = body;
 
-      const to = "emanueleanzilotti@gmail.com";
-      const href = "mailto:" + encodeURIComponent(to)
-        + "?subject=" + encodeURIComponent(subject)
-        + "&body=" + encodeURIComponent(body);
+  // ===== MAP FALLBACK =====
+  const frame = document.getElementById("gseMapFrame");
+  const fallback = document.getElementById("mapFallback");
 
-      mailtoBtn.setAttribute("href", href);
+  setTimeout(() => {
+    if (!frame) return;
+    const rect = frame.getBoundingClientRect();
+    if (!rect.width || !rect.height) {
+      fallback.classList.remove("hidden");
     }
+  }, 2500);
 
-    updatePreviewAndMailto();
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      if (!cabinaInput.value.trim()) {
-        alert("Seleziona prima una cabina primaria (sezione Cabine).");
-        return;
-      }
-      window.location.href = mailtoBtn.getAttribute("href");
-    });
-
-    // Copy
-    const copyBtn = document.getElementById("copyBtn");
-    const copyToast = document.getElementById("copyToast");
-
-    copyBtn.addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText(emailPreview.value);
-        copyToast.classList.remove("hidden");
-        setTimeout(() => copyToast.classList.add("hidden"), 1500);
-      } catch (err) {
-        alert("Copia non riuscita. Seleziona il testo e copia manualmente.");
-      }
-    });
-
-    // Map iframe fallback detection (best-effort)
-    const frame = document.getElementById("gseMapFrame");
-    const fallback = document.getElementById("mapFallback");
-
-    setTimeout(() => {
-      const rect = frame.getBoundingClientRect();
-      if (!rect.width || !rect.height) fallback.classList.remove("hidden");
-    }, 2500);
-  </script>
+</script>
 </body>
 </html>
