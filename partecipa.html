@@ -442,7 +442,6 @@
   </main>
 
 <script>
-
   // ===== CABINA SELECTION =====
   const cabinaInput = document.getElementById("cabina");
 
@@ -455,30 +454,45 @@
     btn.addEventListener("click", () => {
       const code = btn.getAttribute("data-cabina");
       if (!code) return;
-
       setCabina(code);
-
-      document.getElementById("modulo")
-        .scrollIntoView({ behavior: "smooth" });
+      const modulo = document.getElementById("modulo");
+      if (modulo) modulo.scrollIntoView({ behavior: "smooth" });
     });
   });
 
-  // Supporto parametro ?cabina=...
   const params = new URLSearchParams(window.location.search);
   const cabinaParam = params.get("cabina");
   if (cabinaParam) setCabina(cabinaParam);
 
-
-
-  // ===== INVIO A GOOGLE SHEETS =====
+  // ===== INVIO A GOOGLE SHEETS (Apps Script Web App /exec) =====
   const form = document.getElementById("adesioneForm");
+
+  function showToast(msg, type) {
+    const box = document.createElement("div");
+    box.className =
+      "mt-6 rounded-2xl border p-4 text-sm font-semibold " +
+      (type === "ok"
+        ? "border-green-400/30 bg-green-500/20 text-green-100"
+        : "border-red-400/30 bg-red-500/20 text-red-100");
+    box.innerText = msg;
+    form.parentNode.insertBefore(box, form.nextSibling);
+    setTimeout(() => box.remove(), 7000);
+  }
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     if (!cabinaInput.value.trim()) {
-      alert("Seleziona prima una cabina primaria.");
+      showToast("Seleziona prima una cabina primaria.", "err");
       return;
+    }
+
+    const btn = form.querySelector('button[type="submit"]');
+    const oldText = btn ? btn.innerText : "";
+    if (btn) {
+      btn.disabled = true;
+      btn.classList.add("opacity-70", "cursor-not-allowed");
+      btn.innerText = "Invio in corso…";
     }
 
     const data = {
@@ -494,32 +508,44 @@
     };
 
     try {
-      await fetch("https://script.google.com/macros/s/AKfycbwJl4Zy5AlVuDmRgqHNvyyTVMtgqu93JVrIbwQY8vADDILDFL5xEyF9lJEqgLk8j2dXwQ/exec", {
+      const res = await fetch("INCOLLA_QUI_URL_EXEC", {
         method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
       });
 
-      alert("Richiesta inviata correttamente.");
+      // Se la webapp risponde JSON, bene. Altrimenti basta che non vada in errore.
+      let ok = true;
+      try {
+        const j = await res.json();
+        ok = j && j.result === "success";
+      } catch (_) {}
+
+      if (!ok) throw new Error("Risposta non valida");
+
+      showToast("Richiesta inviata correttamente. Riceverai una email di conferma.", "ok");
       form.reset();
-    } catch (error) {
-      alert("Errore nell'invio. Riprovare.");
+      setCabina(""); // svuota cabina dopo reset
+    } catch (err) {
+      showToast("Errore nell'invio. Riprovare tra qualche minuto.", "err");
+    } finally {
+      if (btn) {
+        btn.disabled = false;
+        btn.classList.remove("opacity-70", "cursor-not-allowed");
+        btn.innerText = oldText || "Invia richiesta";
+      }
     }
   });
-
-
 
   // ===== MAP FALLBACK =====
   const frame = document.getElementById("gseMapFrame");
   const fallback = document.getElementById("mapFallback");
 
   setTimeout(() => {
-    if (!frame) return;
+    if (!frame || !fallback) return;
     const rect = frame.getBoundingClientRect();
-    if (!rect.width || !rect.height) {
-      fallback.classList.remove("hidden");
-    }
+    if (!rect.width || !rect.height) fallback.classList.remove("hidden");
   }, 2500);
-
 </script>
 </body>
 </html>
