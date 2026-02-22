@@ -6,6 +6,7 @@
   <title>News — CER Massarosa</title>
   <meta name="description" content="News e aggiornamenti della CER Massarosa." />
   <meta name="theme-color" content="#052e16" />
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -18,6 +19,7 @@
       }
     }
   </script>
+
   <style>
     html { scroll-behavior: smooth; }
     .glass { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
@@ -59,12 +61,10 @@
         PARTECIPA
       </a>
 
-      <!-- Mobile menu button -->
       <button id="mobileMenuBtn"
               class="inline-flex md:hidden items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-3 py-2 hover:bg-white/10"
               aria-label="Apri menu"
               aria-expanded="false">
-        <!-- icon -->
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
@@ -72,7 +72,6 @@
     </div>
   </div>
 
-  <!-- Mobile dropdown -->
   <div id="mobileMenu" class="hidden md:hidden border-t border-white/10 bg-green-950/90">
     <div class="mx-auto max-w-6xl px-4 py-4 grid gap-2 text-sm text-slate-200">
       <a class="rounded-xl border border-white/10 bg-white/5 px-4 py-3 hover:bg-white/10" href="../index.html#cos-e">Cos’è</a>
@@ -101,7 +100,6 @@
         btn.setAttribute("aria-expanded", String(!isOpen));
       });
 
-      // chiudi menu quando clicchi un link
       menu.querySelectorAll("a").forEach(a => {
         a.addEventListener("click", () => {
           menu.classList.add("hidden");
@@ -113,14 +111,12 @@
 </header>
 
   <main class="mx-auto max-w-6xl px-4 py-10 md:py-14">
-    <!-- Breadcrumb -->
     <nav class="text-sm text-slate-300">
       <a class="hover:text-white" href="../index.html">Home</a>
       <span class="px-2">/</span>
       <span class="text-slate-100 font-semibold">News</span>
     </nav>
 
-    <!-- Title -->
     <section class="mt-8">
       <h1 class="text-4xl font-black tracking-tight md:text-5xl">News</h1>
 
@@ -130,9 +126,8 @@
       </div>
     </section>
 
-    <!-- News list -->
+    <!-- News list (invariato) -->
     <section class="mt-10 space-y-4">
-      <!-- Item 1 -->
       <article class="rounded-3xl border border-white/10 bg-white/5 p-6 hover:bg-white/10 transition">
         <div class="text-sm text-slate-300">15 Feb 2026</div>
         <h3 class="mt-2 text-2xl font-black leading-snug">
@@ -140,13 +135,10 @@
         </h3>
         <div class="mt-4">
           <a class="inline-flex items-center justify-center rounded-xl bg-green-500 px-4 py-2 text-sm font-extrabold text-slate-950 hover:bg-green-400"
-             href="2026-02-15-lancio-pagina.html">
-            Approfondisci
-          </a>
+             href="2026-02-15-lancio-pagina.html">Approfondisci</a>
         </div>
       </article>
 
-      <!-- Item 2 -->
       <article class="rounded-3xl border border-white/10 bg-white/5 p-6 hover:bg-white/10 transition">
         <div class="text-sm text-slate-300">20 Feb 2026</div>
         <h3 class="mt-2 text-2xl font-black leading-snug">
@@ -154,13 +146,10 @@
         </h3>
         <div class="mt-4">
           <a class="inline-flex items-center justify-center rounded-xl bg-green-500 px-4 py-2 text-sm font-extrabold text-slate-950 hover:bg-green-400"
-             href="2026-02-20-adesioni.html">
-            Approfondisci
-          </a>
+             href="2026-02-20-adesioni.html">Approfondisci</a>
         </div>
       </article>
 
-      <!-- Item 3 -->
       <article class="rounded-3xl border border-white/10 bg-white/5 p-6 hover:bg-white/10 transition">
         <div class="text-sm text-slate-300">28 Feb 2026</div>
         <h3 class="mt-2 text-2xl font-black leading-snug">
@@ -168,58 +157,40 @@
         </h3>
         <div class="mt-4">
           <a class="inline-flex items-center justify-center rounded-xl bg-green-500 px-4 py-2 text-sm font-extrabold text-slate-950 hover:bg-green-400"
-             href="2026-02-28-documenti.html">
-            Approfondisci
-          </a>
+             href="2026-02-28-documenti.html">Approfondisci</a>
         </div>
       </article>
     </section>
 
-    <!-- Rassegna stampa -->
-    <section class="mt-14">
-      <h2 class="text-3xl font-black tracking-tight">Rassegna stampa</h2>
-      <p class="mt-2 text-slate-200">Parlano di noi:</p>
-      <p class="mt-2 text-slate-300">Qui puoi trovare articoli e contributi stampa dedicati alla CER di Massarosa.</p>
-
-      <div class="mt-8 grid gap-4 md:grid-cols-2">
-        <!-- ESEMPI: sostituisci titolo, tipo e link -->
-        <article class="rounded-3xl border border-white/10 bg-white/5 p-6">
-          <div class="text-sm text-slate-300">Testata</div>
-          <div class="mt-1 text-xl font-black">Titolo articolo stampa (esempio)</div>
-          <div class="mt-1 text-sm text-slate-400">Giornale / Rivista online</div>
-          <a class="mt-4 inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm font-bold hover:bg-white/10"
-             href="#" target="_blank" rel="noopener">
-            Approfondisci
-          </a>
-        </article>
-
-        <article class="rounded-3xl border border-white/10 bg-white/5 p-6">
-          <div class="text-sm text-slate-300">Testata</div>
-          <div class="mt-1 text-xl font-black">Titolo articolo stampa (esempio)</div>
-          <div class="mt-1 text-sm text-slate-400">Giornale / Rivista online</div>
-          <a class="mt-4 inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm font-bold hover:bg-white/10"
-             href="#" target="_blank" rel="noopener">
-            Approfondisci
-          </a>
-        </article>
-      </div>
-    </section>
-
-    <!-- Newsletter -->
-    <section class="mt-14">
+    <!-- Newsletter (SOSTITUITA) -->
+    <section class="mt-14" id="newsletter">
       <div class="rounded-3xl border border-white/10 bg-gradient-to-br from-emerald-400/20 via-green-400/15 to-lime-400/10 p-8 md:p-10">
         <h2 class="text-3xl font-black tracking-tight">Iscriviti alla Newsletter</h2>
-        <p class="mt-3 text-slate-200">
-          Lascia la tua email per rimanere informato sulle attività della CER e sui prossimi eventi.
-        </p>
+        <p class="mt-3 text-slate-200">Lascia la tua email per rimanere informato sulle attività della CER.</p>
 
-        <!-- Netlify Form -->
-        <form name="newsletter" method="POST" data-netlify="true" class="mt-6 grid gap-4 md:grid-cols-3">
-          <input type="hidden" name="form-name" value="newsletter" />
+        <div id="nlStatusBox" class="mt-6 hidden rounded-3xl border border-white/10 bg-white/5 p-6">
+          <div id="nlStatusTitle" class="text-sm font-extrabold"></div>
+          <div id="nlStatusText" class="mt-2 text-sm text-slate-200"></div>
+        </div>
+
+        <iframe name="nlHiddenFrame" id="nlHiddenFrame" class="hidden"></iframe>
+
+        <form id="newsletterForm"
+              method="POST"
+              target="nlHiddenFrame"
+              class="mt-6 grid gap-4 md:grid-cols-3">
+
+          <div class="hidden">
+            <label for="nl_website">Website</label>
+            <input id="nl_website" name="website" autocomplete="off" tabindex="-1" />
+          </div>
+
+          <input type="hidden" name="userAgent" id="nlUserAgent" value="">
+          <input type="hidden" name="ip" id="nlIp" value="">
 
           <div class="md:col-span-2">
-            <label class="text-sm font-semibold text-slate-200" for="email">Indirizzo Email *</label>
-            <input id="email" name="email" type="email" required
+            <label class="text-sm font-semibold text-slate-200" for="nlEmail">Indirizzo Email *</label>
+            <input id="nlEmail" name="email" type="email" required
               class="mt-1 w-full rounded-2xl border border-white/10 bg-green-950/40 px-4 py-3 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-green-300/60"
               placeholder="nome@dominio.it" />
           </div>
@@ -228,67 +199,115 @@
             <label class="flex items-start gap-3 text-sm text-slate-200">
               <input type="checkbox" name="privacy" required class="mt-1 h-4 w-4 rounded border-white/20 bg-green-950/40">
               <span>
-                Presa visione informativa Privacy * — Proseguendo con l'iscrizione, confermo di aver preso visione dell’informativa.
+                Presa visione informativa Privacy * — Confermo di aver letto e accettato l’informativa
+                (<a class="underline decoration-white/25 hover:decoration-white" href="../privacy.html" target="_blank" rel="noopener">leggi qui</a>).
               </span>
             </label>
           </div>
 
           <div class="md:col-span-3">
-            <button type="submit"
+            <button id="nlSubmitBtn" type="submit"
               class="inline-flex items-center justify-center rounded-2xl bg-green-500 px-8 py-3 text-base font-extrabold text-slate-950 hover:bg-green-400">
               Iscriviti
             </button>
           </div>
-        </form>
 
-        <p class="mt-4 text-xs text-slate-400">
-          Nota: aggiungi una vera pagina “Privacy” quando la pubblichi ufficialmente.
-        </p>
+          <p class="md:col-span-3 mt-2 text-xs text-slate-400">
+            Riceverai una email di conferma (controlla Spam/Promozioni).
+          </p>
+        </form>
       </div>
     </section>
 
-    <!-- Footer mini -->
+    <!-- Footer (invariato) -->
 <footer class="mt-14 border-t border-white/10 bg-green-950/70">
   <div class="mx-auto max-w-6xl px-4 py-10">
-
     <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-
-      <!-- Logo + Identità -->
       <div class="flex items-center gap-3">
         <img src="../logo.png" alt="Logo CER Massarosa" class="h-12 w-auto">
         <div class="leading-tight">
-          <div class="text-sm font-semibold tracking-wide text-slate-200">
-            CER MASSAROSA
-          </div>
-          <div class="text-xs text-slate-400">
-            La Nostra Energia
-          </div>
+          <div class="text-sm font-semibold tracking-wide text-slate-200">CER MASSAROSA</div>
+          <div class="text-xs text-slate-400">La Nostra Energia</div>
         </div>
       </div>
 
-      <!-- Link utili -->
       <div class="flex flex-wrap gap-3 text-sm">
-        <a class="rounded-xl border border-white/10 bg-white/5 px-4 py-2 hover:bg-white/10"
-           href="../index.html#documenti">Documenti</a>
-
-        <a class="rounded-xl border border-white/10 bg-white/5 px-4 py-2 hover:bg-white/10"
-           href="../index.html">News</a>
-
-        <a class="rounded-xl border border-white/10 bg-white/5 px-4 py-2 hover:bg-white/10"
-           href="../partecipa.html">Partecipa</a>
-
-        <a class="rounded-xl border border-white/10 bg-white/5 px-4 py-2 hover:bg-white/10"
-           href="../privacy.html">Privacy</a>
+        <a class="rounded-xl border border-white/10 bg-white/5 px-4 py-2 hover:bg-white/10" href="../index.html#documenti">Documenti</a>
+        <a class="rounded-xl border border-white/10 bg-white/5 px-4 py-2 hover:bg-white/10" href="../index.html">News</a>
+        <a class="rounded-xl border border-white/10 bg-white/5 px-4 py-2 hover:bg-white/10" href="../partecipa.html">Partecipa</a>
+        <a class="rounded-xl border border-white/10 bg-white/5 px-4 py-2 hover:bg-white/10" href="../privacy.html">Privacy</a>
       </div>
     </div>
 
-    <!-- Riga finale -->
     <div class="mt-8 border-t border-white/10 pt-6 text-xs text-slate-400">
       © 2026 CER Massarosa — Tutti i diritti riservati.
     </div>
-
   </div>
 </footer>
+
   </main>
+
+<script>
+  const NEWSLETTER_EXEC_URL = "https://script.google.com/macros/s/AKfycbx4uuJ8Dci_nWuxCLcNDZCNglZWjSnQ2UtnoOYq_8qs4n-eGnfaeIbHGSpYvomcaOsG/exec";
+
+  const nlForm = document.getElementById("newsletterForm");
+  const nlFrame = document.getElementById("nlHiddenFrame");
+  const nlBtn = document.getElementById("nlSubmitBtn");
+
+  const nlStatusBox = document.getElementById("nlStatusBox");
+  const nlStatusTitle = document.getElementById("nlStatusTitle");
+  const nlStatusText = document.getElementById("nlStatusText");
+
+  function nlShow(kind, title, text) {
+    nlStatusBox.classList.remove("hidden");
+    nlStatusTitle.textContent = title;
+    nlStatusText.textContent = text;
+
+    nlStatusBox.classList.remove("border-green-400/30","bg-green-500/10","border-red-400/30","bg-red-500/10");
+    if (kind === "ok") nlStatusBox.classList.add("border-green-400/30","bg-green-500/10");
+    else nlStatusBox.classList.add("border-red-400/30","bg-red-500/10");
+
+    nlStatusBox.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  let nlWaiting = false;
+
+  document.getElementById("nlUserAgent").value = navigator.userAgent || "";
+  document.getElementById("nlIp").value = "";
+
+  nlForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    nlForm.action = NEWSLETTER_EXEC_URL;
+
+    nlWaiting = true;
+    nlBtn.disabled = true;
+    nlBtn.textContent = "Invio in corso…";
+
+    nlForm.submit();
+
+    setTimeout(() => {
+      if (!nlWaiting) return;
+      nlWaiting = false;
+      nlBtn.disabled = false;
+      nlBtn.textContent = "Iscriviti";
+      nlShow("err", "Invio non confermato", "Non ho ricevuto conferma tecnica. Riprova tra qualche minuto.");
+    }, 12000);
+  });
+
+  nlFrame.addEventListener("load", () => {
+    if (!nlWaiting) return;
+    nlWaiting = false;
+
+    nlBtn.disabled = false;
+    nlBtn.textContent = "Iscriviti";
+    nlShow("ok", "Iscrizione registrata", "Operazione completata. Riceverai una email di conferma (controlla Spam/Promozioni).");
+
+    nlForm.reset();
+    document.getElementById("nlUserAgent").value = navigator.userAgent || "";
+    document.getElementById("nlIp").value = "";
+  });
+</script>
+
 </body>
 </html>
