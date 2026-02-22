@@ -447,7 +447,7 @@
 
   function setCabina(code) {
     if (!cabinaInput) return;
-    cabinaInput.value = code;
+    cabinaInput.value = code || "";
   }
 
   document.querySelectorAll(".selectCabinaBtn").forEach(btn => {
@@ -464,10 +464,11 @@
   const cabinaParam = params.get("cabina");
   if (cabinaParam) setCabina(cabinaParam);
 
-  // ===== INVIO A GOOGLE SHEETS (Apps Script Web App /exec) =====
+  // ===== INVIO A GOOGLE APPS SCRIPT (FORM-ENCODED, NO PREFLIGHT) =====
+  const URL_EXEC = "https://script.google.com/macros/s/AKfycbwJl4Zy5AlVuDmRgqHNvyyTVMtgqu93JVrIbwQY8vADDILDFL5xEyF9lJEqgLk8j2dXwQ/exec";
   const form = document.getElementById("adesioneForm");
 
-  function showToast(msg, type) {
+  function toast(msg, type) {
     const box = document.createElement("div");
     box.className =
       "mt-6 rounded-2xl border p-4 text-sm font-semibold " +
@@ -483,7 +484,7 @@
     e.preventDefault();
 
     if (!cabinaInput.value.trim()) {
-      showToast("Seleziona prima una cabina primaria.", "err");
+      toast("Seleziona prima una cabina primaria.", "err");
       return;
     }
 
@@ -495,7 +496,7 @@
       btn.innerText = "Invio in corso…";
     }
 
-    const data = {
+    const payload = new URLSearchParams({
       cabina: document.getElementById("cabina").value,
       tipo: document.getElementById("tipo").value,
       nome: document.getElementById("nome").value,
@@ -505,29 +506,23 @@
       comune: document.getElementById("comune").value,
       pod: document.getElementById("pod").value,
       note: document.getElementById("note").value
-    };
+    });
 
     try {
-      const res = await fetch("https://script.google.com/macros/s/AKfycbwJl4Zy5AlVuDmRgqHNvyyTVMtgqu93JVrIbwQY8vADDILDFL5xEyF9lJEqgLk8j2dXwQ/exec", {
+      const res = await fetch(URL_EXEC, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
+        headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+        body: payload.toString()
       });
 
-      // Se la webapp risponde JSON, bene. Altrimenti basta che non vada in errore.
-      let ok = true;
-      try {
-        const j = await res.json();
-        ok = j && j.result === "success";
-      } catch (_) {}
+      // Se non esplode e non è 4xx/5xx, consideriamo ok
+      if (!res.ok) throw new Error("HTTP " + res.status);
 
-      if (!ok) throw new Error("Risposta non valida");
-
-      showToast("Richiesta inviata correttamente. Riceverai una email di conferma.", "ok");
+      toast("Richiesta inviata correttamente. Riceverai una email di conferma.", "ok");
       form.reset();
-      setCabina(""); // svuota cabina dopo reset
+      setCabina("");
     } catch (err) {
-      showToast("Errore nell'invio. Riprovare tra qualche minuto.", "err");
+      toast("Errore nell'invio. Riprova tra qualche minuto.", "err");
     } finally {
       if (btn) {
         btn.disabled = false;
@@ -540,7 +535,6 @@
   // ===== MAP FALLBACK =====
   const frame = document.getElementById("gseMapFrame");
   const fallback = document.getElementById("mapFallback");
-
   setTimeout(() => {
     if (!frame || !fallback) return;
     const rect = frame.getBoundingClientRect();
