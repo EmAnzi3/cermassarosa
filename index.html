@@ -684,52 +684,77 @@
       Ti ricontatteremo quanto prima.
     </p>
 
-    <form class="mt-8 space-y-4">
+<!-- ESITO INVIO -->
+<div id="infoStatusBox" class="mt-6 hidden rounded-3xl border border-white/10 bg-white/5 p-6">
+  <div id="infoStatusTitle" class="text-sm font-extrabold"></div>
+  <div id="infoStatusText" class="mt-2 text-sm text-slate-200"></div>
+</div>
 
-      <div class="grid gap-4 sm:grid-cols-2">
-        <div>
-          <label class="text-sm font-semibold text-slate-200">Nome</label>
-          <input type="text" required
-            class="mt-1 w-full rounded-2xl border border-white/10 bg-green-950/40 px-4 py-3 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-green-300/60"
-            placeholder="Mario">
-        </div>
+<iframe name="infoHiddenFrame" id="infoHiddenFrame" class="hidden"></iframe>
 
-        <div>
-          <label class="text-sm font-semibold text-slate-200">Cognome</label>
-          <input type="text" required
-            class="mt-1 w-full rounded-2xl border border-white/10 bg-green-950/40 px-4 py-3 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-green-300/60"
-            placeholder="Rossi">
-        </div>
-      </div>
+<form id="infoForm"
+      class="mt-8 space-y-4"
+      method="POST"
+      target="infoHiddenFrame">
 
-      <div>
-        <label class="text-sm font-semibold text-slate-200">Email</label>
-        <input type="email" required
-          class="mt-1 w-full rounded-2xl border border-white/10 bg-green-950/40 px-4 py-3 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-green-300/60"
-          placeholder="nome@dominio.it">
-      </div>
+  <!-- anti-spam -->
+  <div class="hidden">
+    <label for="info_website">Website</label>
+    <input id="info_website" name="website" autocomplete="off" tabindex="-1" />
+  </div>
 
-      <div>
-        <label class="text-sm font-semibold text-slate-200">Messaggio</label>
-        <textarea rows="4" required
-          class="mt-1 w-full rounded-2xl border border-white/10 bg-green-950/40 px-4 py-3 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-green-300/60"
-          placeholder="Scrivi qui la tua richiesta..."></textarea>
-      </div>
+  <!-- campi tecnici -->
+  <input type="hidden" name="userAgent" id="infoUserAgent" value="">
+  <input type="hidden" name="ip" id="infoIp" value="">
+  <input type="hidden" name="referrer" id="infoReferrer" value="">
 
-      <label class="flex items-start gap-3 text-sm text-slate-200">
-        <input type="checkbox" required class="mt-1 h-4 w-4 rounded border-white/20 bg-green-950/40">
-        <span>
-          Acconsento al trattamento dei dati secondo l’informativa privacy
-          (<a class="underline decoration-white/25 hover:decoration-white" href="privacy.html" target="_blank">leggi qui</a>).
-        </span>
-      </label>
+  <div class="grid gap-4 sm:grid-cols-2">
+    <div>
+      <label class="text-sm font-semibold text-slate-200" for="info-firstName">Nome</label>
+      <input id="info-firstName" name="firstName" type="text" required
+        class="mt-1 w-full rounded-2xl border border-white/10 bg-green-950/40 px-4 py-3 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-green-300/60"
+        placeholder="Mario">
+    </div>
 
-      <button type="submit"
-        class="w-full rounded-2xl bg-green-500 px-6 py-3 text-base font-extrabold text-slate-950 hover:bg-green-400">
-        INVIA
-      </button>
+    <div>
+      <label class="text-sm font-semibold text-slate-200" for="info-lastName">Cognome</label>
+      <input id="info-lastName" name="lastName" type="text" required
+        class="mt-1 w-full rounded-2xl border border-white/10 bg-green-950/40 px-4 py-3 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-green-300/60"
+        placeholder="Rossi">
+    </div>
+  </div>
 
-    </form>
+  <div>
+    <label class="text-sm font-semibold text-slate-200" for="info-email">Email</label>
+    <input id="info-email" name="email" type="email" required
+      class="mt-1 w-full rounded-2xl border border-white/10 bg-green-950/40 px-4 py-3 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-green-300/60"
+      placeholder="nome@dominio.it">
+  </div>
+
+  <div>
+    <label class="text-sm font-semibold text-slate-200" for="info-message">Messaggio</label>
+    <textarea id="info-message" name="message" rows="4" required
+      class="mt-1 w-full rounded-2xl border border-white/10 bg-green-950/40 px-4 py-3 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-green-300/60"
+      placeholder="Scrivi qui la tua richiesta..."></textarea>
+  </div>
+
+  <label class="flex items-start gap-3 text-sm text-slate-200">
+    <input type="checkbox" name="privacy" required class="mt-1 h-4 w-4 rounded border-white/20 bg-green-950/40">
+    <span>
+      Acconsento al trattamento dei dati secondo l’informativa privacy
+      (<a class="underline decoration-white/25 hover:decoration-white" href="privacy.html" target="_blank" rel="noopener">leggi qui</a>).
+    </span>
+  </label>
+
+  <button id="infoSubmitBtn" type="submit"
+    class="w-full rounded-2xl bg-green-500 px-6 py-3 text-base font-extrabold text-slate-950 hover:bg-green-400">
+    INVIA
+  </button>
+
+  <p class="text-xs text-slate-400">
+    Dopo l’invio riceverai una email di conferma (controlla anche Spam/Promozioni).
+  </p>
+</form>
   </div>
 </section>
 
@@ -835,6 +860,71 @@
     nlForm.reset();
     document.getElementById("nlUserAgent").value = navigator.userAgent || "";
     document.getElementById("nlIp").value = "";
+  });
+</script>
+<script>
+  // ====== INCOLLA QUI URL /exec DELLE RICHIESTE INFO ======
+  const INFO_EXEC_URL = "https://script.google.com/macros/s/AKfycbzuyJeG7M0Ae5-4C0sXiwCKWdbyGA57bTEZPQzsTE7uw0e-EfZ_MsjnOiPJbubzChrm_Q/exec";
+
+  const infoForm = document.getElementById("infoForm");
+  const infoFrame = document.getElementById("infoHiddenFrame");
+  const infoBtn = document.getElementById("infoSubmitBtn");
+
+  const infoStatusBox = document.getElementById("infoStatusBox");
+  const infoStatusTitle = document.getElementById("infoStatusTitle");
+  const infoStatusText = document.getElementById("infoStatusText");
+
+  function infoShow(kind, title, text) {
+    infoStatusBox.classList.remove("hidden");
+    infoStatusTitle.textContent = title;
+    infoStatusText.textContent = text;
+
+    infoStatusBox.classList.remove("border-green-400/30","bg-green-500/10","border-red-400/30","bg-red-500/10");
+    if (kind === "ok") infoStatusBox.classList.add("border-green-400/30","bg-green-500/10");
+    else infoStatusBox.classList.add("border-red-400/30","bg-red-500/10");
+
+    infoStatusBox.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  let infoWaiting = false;
+
+  // UA + referrer (IP dal browser: non disponibile)
+  document.getElementById("infoUserAgent").value = navigator.userAgent || "";
+  document.getElementById("infoIp").value = "";
+  document.getElementById("infoReferrer").value = document.referrer || "";
+
+  infoForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    infoForm.action = INFO_EXEC_URL;
+
+    infoWaiting = true;
+    infoBtn.disabled = true;
+    infoBtn.textContent = "Invio in corso…";
+
+    infoForm.submit();
+
+    setTimeout(() => {
+      if (!infoWaiting) return;
+      infoWaiting = false;
+      infoBtn.disabled = false;
+      infoBtn.textContent = "INVIA";
+      infoShow("err", "Invio non confermato", "Non ho ricevuto conferma tecnica. Riprova tra qualche minuto.");
+    }, 12000);
+  });
+
+  infoFrame.addEventListener("load", () => {
+    if (!infoWaiting) return;
+    infoWaiting = false;
+
+    infoBtn.disabled = false;
+    infoBtn.textContent = "INVIA";
+
+    infoShow("ok", "Richiesta inviata", "Operazione completata. Riceverai una email di conferma (controlla Spam/Promozioni).");
+    infoForm.reset();
+    document.getElementById("infoUserAgent").value = navigator.userAgent || "";
+    document.getElementById("infoIp").value = "";
+    document.getElementById("infoReferrer").value = document.referrer || "";
   });
 </script>
 </body>
