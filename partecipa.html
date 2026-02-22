@@ -22,7 +22,6 @@
 
   <style>
     html { scroll-behavior: smooth; }
-    .glass { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
   </style>
 </head>
 
@@ -36,7 +35,6 @@
 
   <header class="sticky top-0 z-50 border-b border-white/10 bg-green-950/70 backdrop-blur">
     <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-
       <a href="index.html" class="flex items-center gap-3">
         <img src="logo.png" alt="Logo CER Massarosa" class="h-12 w-auto">
         <div class="leading-tight">
@@ -45,7 +43,6 @@
         </div>
       </a>
 
-      <!-- Desktop nav -->
       <nav class="hidden md:flex items-center gap-6 text-sm text-slate-200">
         <a class="hover:text-white" href="index.html#cos-e">Cos’è</a>
         <a class="hover:text-white" href="index.html#come-funziona">Come funziona</a>
@@ -61,7 +58,6 @@
           PARTECIPA
         </a>
 
-        <!-- Mobile menu button -->
         <button id="mobileMenuBtn"
                 class="inline-flex md:hidden items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-3 py-2 hover:bg-white/10"
                 aria-label="Apri menu"
@@ -73,7 +69,6 @@
       </div>
     </div>
 
-    <!-- Mobile dropdown -->
     <div id="mobileMenu" class="hidden md:hidden border-t border-white/10 bg-green-950/90">
       <div class="mx-auto max-w-6xl px-4 py-4 grid gap-2 text-sm text-slate-200">
         <a class="rounded-xl border border-white/10 bg-white/5 px-4 py-3 hover:bg-white/10" href="index.html#cos-e">Cos’è</a>
@@ -82,11 +77,8 @@
         <a class="rounded-xl border border-white/10 bg-white/5 px-4 py-3 hover:bg-white/10" href="news/index.html">News</a>
         <a class="rounded-xl border border-white/10 bg-white/5 px-4 py-3 hover:bg-white/10" href="faq.html">FAQ</a>
         <a class="rounded-xl border border-white/10 bg-white/5 px-4 py-3 hover:bg-white/10" href="index.html#contatti">Contatti</a>
-
         <a class="mt-2 inline-flex items-center justify-center rounded-2xl bg-green-500 px-6 py-3 text-sm font-extrabold text-slate-950 hover:bg-green-400"
-           href="partecipa.html">
-          PARTECIPA
-        </a>
+           href="partecipa.html">PARTECIPA</a>
       </div>
     </div>
 
@@ -113,28 +105,21 @@
   </header>
 
   <main class="mx-auto max-w-6xl px-4 py-10 md:py-14">
-    <!-- Breadcrumb -->
     <nav class="text-sm text-slate-300">
       <a class="hover:text-white" href="index.html">Home</a>
       <span class="px-2">/</span>
       <span class="text-slate-100 font-semibold">Partecipa</span>
     </nav>
 
-    <!-- Hero -->
     <section class="mt-8">
       <div class="max-w-4xl">
-        <h1 class="text-4xl font-black tracking-tight md:text-5xl">
-          Partecipa alla CER Massarosa
-        </h1>
-
+        <h1 class="text-4xl font-black tracking-tight md:text-5xl">Partecipa alla CER Massarosa</h1>
         <p class="mt-4 text-slate-200 leading-relaxed">
-          Prima verifica <span class="font-black text-white">in quale cabina primaria</span> ricade la tua utenza
-          con la mappa ufficiale GSE, poi invia una
+          Verifica la <span class="font-black text-white">cabina primaria</span> sulla mappa GSE e invia una
           <span class="font-black text-white">richiesta di adesione preliminare</span>.
         </p>
       </div>
 
-      <!-- Box come funziona -->
       <div class="mt-10 rounded-3xl border border-white/10 bg-white/5 p-8">
         <div class="text-sm font-semibold text-slate-200">Come funziona</div>
 
@@ -159,7 +144,7 @@
             <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-lime-300 text-slate-950 font-black">3</div>
             <div>
               <div class="font-black">Invia la richiesta preliminare</div>
-              <div class="text-sm text-slate-300">Dati essenziali e contatto. Procedura semplice e trasparente.</div>
+              <div class="text-sm text-slate-300">Ricevi conferma a schermo e via email.</div>
             </div>
           </div>
         </div>
@@ -178,14 +163,11 @@
       </div>
     </section>
 
-    <!-- MAPPA GSE -->
     <section id="mappa" class="mt-14 border-t border-white/10 pt-14">
       <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div class="max-w-3xl">
           <h2 class="text-3xl font-black tracking-tight md:text-4xl">Mappa GSE — cabine primarie</h2>
-          <p class="mt-3 text-slate-200">
-            Usa la mappa ufficiale per individuare la cabina primaria della tua utenza (POD/indirizzo/coordinate).
-          </p>
+          <p class="mt-3 text-slate-200">Usa la mappa ufficiale per individuare la cabina primaria della tua utenza.</p>
         </div>
 
         <a class="inline-flex w-fit items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-bold hover:bg-white/10"
@@ -209,9 +191,7 @@
 
         <div id="mapFallback" class="mt-4 hidden rounded-2xl border border-white/10 bg-green-950/40 p-4">
           <div class="text-sm font-bold">Embed non disponibile</div>
-          <p class="mt-2 text-sm text-slate-300">
-            Se la mappa non compare è probabile che il portale blocchi l’inclusione in iframe. Aprila in nuova scheda.
-          </p>
+          <p class="mt-2 text-sm text-slate-300">Se la mappa non compare, aprila in nuova scheda.</p>
           <a class="mt-3 inline-flex items-center justify-center rounded-xl bg-green-500 px-4 py-2 text-sm font-extrabold text-slate-950 hover:bg-green-400"
              href="https://mappe.gse.it/portal/apps/experiencebuilder/experience/?data_id=dataSource_4-19962386703-layer-12%3A1653&id=184cfb3e247b40b0af9dacac4376cd43"
              target="_blank" rel="noopener">
@@ -221,12 +201,9 @@
       </div>
     </section>
 
-    <!-- CABINE -->
     <section id="cabine" class="mt-14 border-t border-white/10 pt-14">
       <h2 class="text-3xl font-black tracking-tight md:text-4xl">Cabine primarie su Massarosa</h2>
-      <p class="mt-3 max-w-3xl text-slate-200">
-        Se la tua utenza ricade in una di queste cabine, puoi inviare la richiesta di adesione preliminare.
-      </p>
+      <p class="mt-3 max-w-3xl text-slate-200">Seleziona la cabina e compila il modulo.</p>
 
       <div class="mt-8 grid gap-4 md:grid-cols-2">
         <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
@@ -267,23 +244,19 @@
       </div>
     </section>
 
-    <!-- MODULO -->
     <section id="modulo" class="mt-14 border-t border-white/10 pt-14">
       <div class="max-w-3xl">
         <h2 class="text-3xl font-black tracking-tight md:text-4xl">Richiesta di adesione preliminare</h2>
-        <p class="mt-3 text-slate-200">
-          Compila i dati essenziali per avviare la verifica di ammissibilità alla CER Massarosa.
-        </p>
+        <p class="mt-3 text-slate-200">Dopo l’invio vedrai l’esito a schermo e riceverai una email di conferma.</p>
       </div>
 
-      <!-- Stato invio -->
+      <!-- Messaggio browser (esito invio) -->
       <div id="statusBox" class="mt-6 hidden rounded-3xl border border-white/10 bg-white/5 p-6">
         <div id="statusTitle" class="text-sm font-extrabold"></div>
         <div id="statusText" class="mt-2 text-sm text-slate-200"></div>
       </div>
 
       <div class="mt-8">
-        <!-- target iframe per evitare CORS -->
         <iframe name="hiddenFrame" id="hiddenFrame" class="hidden"></iframe>
 
         <form id="adesioneForm" class="rounded-3xl border border-white/10 bg-white/5 p-6 md:p-8" method="POST" target="hiddenFrame">
@@ -296,6 +269,12 @@
                      class="mt-1 w-full rounded-2xl border border-white/10 bg-green-950/40 px-4 py-3 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-green-300/60"
                      placeholder="Seleziona una cabina sopra" />
               <p class="mt-2 text-xs text-slate-400">Selezionala dalle card: qui si compila da sola.</p>
+            </div>
+
+            <!-- Honeypot anti-spam (invisibile) -->
+            <div class="hidden">
+              <label for="website">Website</label>
+              <input id="website" name="website" autocomplete="off" tabindex="-1" />
             </div>
 
             <div class="grid gap-4 sm:grid-cols-2">
@@ -375,7 +354,7 @@
             </button>
 
             <p class="text-xs text-slate-400">
-              Dopo l’invio riceverai una email di conferma (controlla anche spam/promozioni).
+              Se non ricevi l’email di conferma entro pochi minuti, controlla Spam/Promozioni.
             </p>
           </div>
         </form>
@@ -409,16 +388,12 @@
   </main>
 
   <script>
-    // ====== INCOLLA QUI LA TUA URL /exec DELLA WEB APP ======
-    const URL_EXEC = "https://script.google.com/macros/s/AKfycbzBrKTGq8w-66DhnfVxM0WgkkZgjMD1V4wnkDPtXTVXTwggZrCAQZMpgQJX3uqmz-vigQ/exec";
+    // ====== URL /exec della Web App ======
+    const URL_EXEC = "https://script.google.com/macros/s/AKfycbxEwvip4UKIWdGSMPvB6w1wkDnSAP_CoZoDw5i8axSRM-gzR51tPd8_rS7NUwFMc3SHiA/exec";
 
     // ===== CABINA SELECTION =====
     const cabinaInput = document.getElementById("cabina");
-
-    function setCabina(code) {
-      if (!cabinaInput) return;
-      cabinaInput.value = code || "";
-    }
+    function setCabina(code) { if (cabinaInput) cabinaInput.value = code || ""; }
 
     document.querySelectorAll(".selectCabinaBtn").forEach(btn => {
       btn.addEventListener("click", () => {
@@ -434,7 +409,7 @@
     const cabinaParam = params.get("cabina");
     if (cabinaParam) setCabina(cabinaParam);
 
-    // ===== INVIO SENZA CORS (POST classico su iframe) =====
+    // ===== MESSAGGIO BROWSER (OK/KO) =====
     const form = document.getElementById("adesioneForm");
     const hiddenFrame = document.getElementById("hiddenFrame");
     const submitBtn = document.getElementById("submitBtn");
@@ -451,11 +426,10 @@
       statusText.textContent = text;
 
       statusBox.classList.remove("border-green-400/30","bg-green-500/10","border-red-400/30","bg-red-500/10");
-      if (kind === "ok") {
-        statusBox.classList.add("border-green-400/30","bg-green-500/10");
-      } else {
-        statusBox.classList.add("border-red-400/30","bg-red-500/10");
-      }
+      if (kind === "ok") statusBox.classList.add("border-green-400/30","bg-green-500/10");
+      else statusBox.classList.add("border-red-400/30","bg-red-500/10");
+
+      statusBox.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
     form.addEventListener("submit", (e) => {
@@ -466,7 +440,6 @@
         return;
       }
 
-      // Imposta action = URL_EXEC e invia
       form.action = URL_EXEC;
 
       waitingResponse = true;
@@ -476,17 +449,16 @@
       // invio reale (no fetch => no CORS)
       form.submit();
 
-      // fallback: se l’iframe non carica per qualche motivo, riabilita dopo un po’
+      // timeout KO (se non arriva load dall'iframe)
       setTimeout(() => {
         if (!waitingResponse) return;
         waitingResponse = false;
         submitBtn.disabled = false;
         submitBtn.textContent = "Invia richiesta";
-        showStatus("err", "Invio non confermato", "Non ho ricevuto conferma tecnica. Riprova tra qualche minuto.");
+        showStatus("err", "Invio non confermato", "Non ho ricevuto una conferma tecnica. Riprova tra qualche minuto.");
       }, 12000);
     });
 
-    // Quando l’iframe “risponde”, consideriamo OK (Apps Script torna “OK”)
     hiddenFrame.addEventListener("load", () => {
       if (!waitingResponse) return;
 
@@ -497,10 +469,10 @@
       showStatus(
         "ok",
         "Richiesta inviata",
-        "Invio completato. Riceverai una email di conferma (se non la vedi, controlla Spam/Promozioni)."
+        "Invio completato. Riceverai una email di conferma (controlla anche Spam/Promozioni)."
       );
 
-      // reset (mantieni cabina)
+      // reset senza perdere la cabina selezionata
       const currentCabina = cabinaInput.value;
       form.reset();
       setCabina(currentCabina);
@@ -509,13 +481,10 @@
     // ===== MAP FALLBACK =====
     const frame = document.getElementById("gseMapFrame");
     const fallback = document.getElementById("mapFallback");
-
     setTimeout(() => {
-      if (!frame) return;
+      if (!frame || !fallback) return;
       const rect = frame.getBoundingClientRect();
-      if (!rect.width || !rect.height) {
-        fallback.classList.remove("hidden");
-      }
+      if (!rect.width || !rect.height) fallback.classList.remove("hidden");
     }, 2500);
   </script>
 </body>
